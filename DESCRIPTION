@@ -1,15 +1,16 @@
 Package: zoabeta
 Type: Package
 Title: Zero-one-augmented beta distribution
-Version: 0.0.1
-Date: 2025-09-18
+Version: 0.0.2
+Date: 2025-09-23
 Authors@R: person("Michael", "Bedward", email = "michael.bedward@gmail.com", 
   role = c("aut", "cre"), comment = c(ORCID = "0000-0002-9986-1286"))
-Description: A simple implementation of the zero-one-augmented beta 
-    distribution
+Description: The zero-one-augmented beta distribution
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
+Imports: 
+    checkmate
 Suggests: 
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
