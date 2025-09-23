@@ -32,17 +32,24 @@ remotes::install_github("mbedward/zoabeta")
 
 ## Examples
 
-Generate random values:
+Simulate values with a 0.2 probability of zero, a 0.1 probability of
+one, and where intermediate values follow a beta(2, 5) distribution
 
 ``` r
 library(zoabeta)
 
-# Generate random values where there is a 0.2 probability of zero and a 
-# 0.1 probability of one, with intermediate values following a beta(2, 5) 
-# distribution
-
-x <- rzoabeta(n = 1e4, shape1 = 2, shape2 = 5, pzero = 0.2, pone = 0.1)
+x <- rzoabeta(n = 1e3, shape1 = 2, shape2 = 5, pzero = 0.2, pone = 0.1)
 hist(x, breaks = 40)
 ```
 
-<img src="man/figures/README-example-1.png" width="100%" />
+<img src="man/figures/README-example_sim-1.png" width="100%" />
+
+Now try to recover the generating parameters by fitting a distribution
+to the simulated data.
+
+``` r
+
+fit_zoabeta(x)
+#>   shape1   shape2    pzero     pone 
+#> 1.975024 5.022039 0.194000 0.097000
+```
