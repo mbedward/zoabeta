@@ -39,10 +39,7 @@ one, and where intermediate values follow a beta(2, 5) distribution
 library(zoabeta)
 
 x <- rzoabeta(n = 1e3, shape1 = 2, shape2 = 5, pzero = 0.2, pone = 0.1)
-hist(x, breaks = 40)
 ```
-
-<img src="man/figures/README-example_sim-1.png" width="100%" />
 
 Now try to recover the generating parameters by fitting a distribution
 to the simulated data.
@@ -51,5 +48,23 @@ to the simulated data.
 
 fit_zoabeta(x)
 #>   shape1   shape2    pzero     pone 
-#> 1.975024 5.022039 0.194000 0.097000
+#> 1.879932 4.972533 0.208000 0.084000
 ```
+
+Display the simulated values using the `draw_zoabeta` function.
+
+``` r
+
+draw_zoabeta(x, draw_hist = TRUE)
+```
+
+<img src="man/figures/README-draw_hist-1.png" width="100%" />
+
+Compare to a graph based on the original generating parameters.
+
+``` r
+
+draw_zoabeta(c(shape1 = 2, shape2 = 5, pzero = 0.2, pone = 0.1))
+```
+
+<img src="man/figures/README-draw_params-1.png" width="100%" />

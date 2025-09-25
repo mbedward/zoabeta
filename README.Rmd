@@ -48,7 +48,6 @@ where intermediate values follow a beta(2, 5) distribution
 library(zoabeta)
 
 x <- rzoabeta(n = 1e3, shape1 = 2, shape2 = 5, pzero = 0.2, pone = 0.1)
-hist(x, breaks = 40)
 
 ```
 
@@ -59,6 +58,24 @@ simulated data.
 ```{r example_fit}
 
 fit_zoabeta(x)
+
+```
+
+
+Display the simulated values using the `draw_zoabeta` function.
+
+```{r draw_hist}
+
+draw_zoabeta(x, draw_hist = TRUE)
+
+```
+
+
+Compare to a graph based on the original generating parameters.
+
+```{r draw_params}
+
+draw_zoabeta(c(shape1 = 2, shape2 = 5, pzero = 0.2, pone = 0.1))
 
 ```
 
