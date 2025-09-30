@@ -13,6 +13,12 @@
 #' When \code{x} is a data vector, there is also the option of displaying the
 #' values strictly between 0 and 1 as a histrogram rather than a density curve.
 #'
+#' Note: the implementation of this function was inspired by this StackOverflow
+#' example of \href{https://stats.stackexchange.com/a/340460/133387}{an
+#' effective graph format} together with this discussion of
+#' \href{https://stackoverflow.com/q/3099219/40246}{scaling a secondary axis in
+#' a ggplot object}.
+#'
 #' @param x Either named list or numeric vector of distribution parameters, or
 #'   a numeric vector of values in the interval \code{[0,1]} to which a
 #'   distribution can be fitted.
