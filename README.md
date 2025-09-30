@@ -48,7 +48,7 @@ to the simulated data.
 
 fit_zoabeta(x)
 #>   shape1   shape2    pzero     pone 
-#> 2.073514 5.217462 0.195000 0.103000
+#> 1.934227 4.718060 0.196000 0.089000
 ```
 
 Display the simulated values using the `draw_zoabeta` function.

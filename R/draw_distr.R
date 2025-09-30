@@ -59,6 +59,8 @@ draw_zoabeta <- function(x, draw_hist = FALSE) {
   }
 
   has_edge <- any(params[c('pzero', 'pone')] > 0)
+  sum_edge_probs <- 0
+  if (has_edge) sum_edge_probs <- sum(params[c('pzero', 'pone')])
 
   dat <- data.frame(x = seq(0, 1, length.out = 101))
 
@@ -66,7 +68,7 @@ draw_zoabeta <- function(x, draw_hist = FALSE) {
 
   if (has_edge) {
     # Scale density if edge probabilities are non-zero
-    dat$dens <- dat$dens * (1 - sum(params[c('pzero', 'pone')]))
+    dat$dens <- dat$dens * (1 - sum_edge_probs)
   }
 
   scale_factor <- max(dat$dens)
@@ -78,7 +80,7 @@ draw_zoabeta <- function(x, draw_hist = FALSE) {
 
   if (x_is_data && draw_hist) {
     x_non_edge <- x[x>0 & x<1]
-    gg <- gg + geom_histogram(aes(x = x_non_edge, after_stat(density)),
+    gg <- gg + geom_histogram(aes(x = x_non_edge, after_stat(density) * (1 - sum_edge_probs)),
                               binwidth = 0.05,
                               colour = "black", fill = "grey80")
   } else {

@@ -25,6 +25,7 @@ standard beta distribution which does not support zero or one values. The
 package provides density, probability, quantile and random variate functions
 analogous to the standard beta distribution functions in the R `stats` package.
 
+
 ## Installation
 
 You can install the development version of zoabeta from [GitHub](https://github.com/) with:
