@@ -18,7 +18,7 @@ knitr::opts_chunk$set(
 <!-- badges: start -->
 <!-- badges: end -->
 
-The zoabeta package is a very simple implementation of the zero-one-augmented
+The zoabeta package is a simple implementation of the zero-one-augmented
 beta distribution that supports values on the unit interval (e.g. proportions or
 probabilities) that might include zero or one values, in contrast to the
 standard beta distribution which does not support zero or one values. The

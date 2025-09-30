@@ -61,7 +61,13 @@ draw_zoabeta <- function(x, draw_hist = FALSE) {
   has_edge <- any(params[c('pzero', 'pone')] > 0)
 
   dat <- data.frame(x = seq(0, 1, length.out = 101))
+
   dat$dens <- stats::dbeta(dat$x, params['shape1'], params['shape2'])
+
+  if (has_edge) {
+    # Scale density if edge probabilities are non-zero
+    dat$dens <- dat$dens * (1 - sum(params[c('pzero', 'pone')]))
+  }
 
   scale_factor <- max(dat$dens)
   if (has_edge) {
@@ -96,7 +102,7 @@ draw_zoabeta <- function(x, draw_hist = FALSE) {
 
       scale_x_continuous(name = "X", limits = c(0, 1), oob = scales::oob_keep) +
 
-      theme(axis.line.y.right = element_line(color = "darkred"),
+      theme(axis.line.y.right = element_line(color = "darkred", linewidth = 1),
             axis.ticks.y.right = element_line(color = "darkred"),
             axis.text.y.right = element_text(color = "darkred"),
             axis.title.y.right = element_text(color = "darkred"))

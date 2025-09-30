@@ -7,10 +7,10 @@
 
 <!-- badges: end -->
 
-The zoabeta package is a very simple implementation of the
-zero-one-augmented beta distribution that supports values on the unit
-interval (e.g. proportions or probabilities) that might include zero or
-one values, in contrast to the standard beta distribution which does not
+The zoabeta package is a simple implementation of the zero-one-augmented
+beta distribution that supports values on the unit interval
+(e.g. proportions or probabilities) that might include zero or one
+values, in contrast to the standard beta distribution which does not
 support zero or one values. The package provides density, probability,
 quantile and random variate functions analogous to the standard beta
 distribution functions in the R `stats` package.
@@ -48,7 +48,7 @@ to the simulated data.
 
 fit_zoabeta(x)
 #>   shape1   shape2    pzero     pone 
-#> 1.879932 4.972533 0.208000 0.084000
+#> 2.073514 5.217462 0.195000 0.103000
 ```
 
 Display the simulated values using the `draw_zoabeta` function.
