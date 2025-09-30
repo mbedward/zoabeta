@@ -26,8 +26,8 @@
 #' @return A ggplot object.
 #'
 #' @importFrom ggplot2 ggplot aes after_stat element_line element_text
-#'   geom_area geom_histogram geom_segment scale_x_continuous scale_y_continuous
-#'   sec_axis theme theme_minimal
+#'   geom_area geom_histogram geom_segment labs scale_x_continuous
+#'   scale_y_continuous sec_axis theme theme_minimal
 #'
 #' @importFrom scales oob_keep
 #'
@@ -96,11 +96,12 @@ draw_zoabeta <- function(x, draw_hist = FALSE) {
                    color = "darkred", linewidth = 2) +
 
       scale_y_continuous(
-        name = "Density",
         sec.axis = sec_axis(~ ./scale_factor, name = "Probability")
       ) +
 
-      scale_x_continuous(name = "X", limits = c(0, 1), oob = scales::oob_keep) +
+      scale_x_continuous(limits = c(0, 1), oob = scales::oob_keep) +
+
+      labs(x = "X", y = "Density") +
 
       theme(axis.line.y.right = element_line(color = "darkred", linewidth = 1),
             axis.ticks.y.right = element_line(color = "darkred"),
